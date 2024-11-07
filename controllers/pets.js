@@ -11,11 +11,20 @@ router.post('/', async(req, res)=>{
         const createdPet = await Pet.create(req.body)
         res.status(201).json(createdPet)
     } catch (error) {
-        
+        res.status(500).json({error: error.message})
     }
 })
 
-
+// Index
+router.get('/', async(req, res) => {
+    try {
+        const allPets = await Pet.find()
+        res.status(202).json(allPets)
+        
+    } catch (error) {
+        res.status(500).json({error: error.message})
+    }
+})
 
 
 module.exports = router
