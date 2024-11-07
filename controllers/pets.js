@@ -48,5 +48,12 @@ router.delete('/:petId', async(req,res) =>{
     }
 })
 
+// Update router
+
+router.put('/:petId', async(req, res) => {
+    const updatedPet = await Pet.findByIdAndUpdate(req.params.petId, req.body, {new: true})
+    res.status(200).json(updatedPet)
+
+})
 module.exports = router
 
