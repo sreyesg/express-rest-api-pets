@@ -14,6 +14,10 @@ mongoose.connection.on('connected', ()=>{
 // midleware
 app.use(express.json())
 
+// Routes
+app.get('/',(req,res)=>{
+    res.send('from home page')
+})
 
 // Listener
 app.listen(4000, ()=>{
